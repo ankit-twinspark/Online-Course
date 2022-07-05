@@ -176,3 +176,198 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+// post type- Subjects 
+
+add_action( 'init', 'create_custom_post_type' );
+function create_custom_post_type() {
+$supports = array(
+'title', // post title
+'editor', // post content
+'author', // post author
+'thumbnail', // featured images
+'excerpt', // post excerpt
+'custom-fields', // custom fields
+'comments', // post comments
+'revisions', // post revisions
+'post-formats', // post formats
+);
+
+$labels = array(
+'name' => _x('Subjects', 'plural'),
+'singular_name' => _x('Subject', 'singular'),
+'menu_name' => _x('Subjects', 'admin menu'),
+'name_admin_bar' => _x('Subjects', 'admin bar'),
+'add_new' => _x('Add New', 'add new'),
+'add_new_item' => _('Add New Subjects'),
+'new_item' => ('New Subjects'),
+'edit_item' => ('Edit Subjects'),
+'view_item' => ('View Subjects'),
+'view_item' => ('View Subjects'),
+'all_items' => ('All Subjects'),
+'search_items' => ('Search Subjects'),
+'hierarchical' => true,
+
+);
+
+$args = array(
+    'supports' => $supports,
+  'labels' => $labels,
+  'public' => true,
+  'has_archive' => false,
+  'rewrite' => array('slug' => 'subjects'),
+  'taxonomies' => false,
+  'show_ui' => true,
+ );
+ 
+register_post_type( 'subjects',$args);
+}
+
+
+
+
+// post type- Courses 
+
+
+	add_action( 'init', 'create_Courses_post_type' );
+ 
+function create_Courses_post_type() {
+$supports = array(
+
+'title', // post title
+'editor', // post content
+'author', // post author
+'thumbnail', // featured images
+'excerpt', // post excerpt
+'custom-fields', // custom fields
+'comments', // post comments
+'revisions', // post revisions
+'post-formats', // post formats
+);
+
+$labels = array(
+'name' => _x('Courses', 'plural'),
+'singular_name' => _x('Course', 'singular'),
+'menu_name' => _x('Courses', 'admin menu'),
+'name_admin_bar' => _x('Courses', 'admin bar'),
+'add_new' => _x('Add New', 'add new'),
+'add_new_item' => _('Add New Courses'),
+'new_item' => ('New Courses'),
+'edit_item' => ('Edit Courses'),
+'view_item' => ('View Courses'),
+'view_item' => ('View Courses'),
+'all_items' => ('All Courses'),
+'search_items' => ('Search Courses'),
+'hierarchical' => true,
+
+);
+ 
+$args = array(
+    'supports' => $supports,
+  'labels' => $labels,
+  'public' => true,
+  'has_archive' => false,
+  'rewrite' => array('slug' => 'Courses'),
+  'taxonomies' => false,
+  'show_ui' => true,
+ );
+ 
+register_post_type( 'Courses',$args);
+}
+
+// post type- Teachers 
+
+
+	add_action( 'init', 'create_Teachers_post_type' );
+ 
+function create_Teachers_post_type() {
+$supports = array(
+
+'title', // post title
+'editor', // post content
+'author', // post author
+'thumbnail', // featured images
+'excerpt', // post excerpt
+'custom-fields', // custom fields
+'comments', // post comments
+'revisions', // post revisions
+'post-formats', // post formats
+);
+
+$labels = array(
+'name' => _x('Teachers', 'plural'),
+'singular_name' => _x('Teacher', 'singular'),
+'menu_name' => _x('Teachers', 'admin menu'),
+'name_admin_bar' => _x('Teachers', 'admin bar'),
+'add_new' => _x('Add New', 'add new'),
+'add_new_item' => _('Add New Teachers'),
+'new_item' => ('New Teachers'),
+'edit_item' => ('Edit Teachers'),
+'view_item' => ('View Teachers'),
+'view_item' => ('View Teachers'),
+'all_items' => ('All Teachers'),
+'search_items' => ('Search Teachers'),
+'hierarchical' => true,
+
+);
+ 
+$args = array(
+    'supports' => $supports,
+  'labels' => $labels,
+  'public' => true,
+  'has_archive' => false,
+  'rewrite' => array('slug' => 'Teachers'),
+  'taxonomies' => false,
+  'show_ui' => true,
+ );
+ 
+register_post_type( 'Teachers',$args);
+}
+
+// post type- Testimonial 
+
+
+	add_action( 'init', 'create_Testimonial_post_type' );
+ 
+function create_Testimonial_post_type() {
+$supports = array(
+
+'title', // post title
+'editor', // post content
+'author', // post author
+'thumbnail', // featured images
+'excerpt', // post excerpt
+'custom-fields', // custom fields
+'comments', // post comments
+'revisions', // post revisions
+'post-formats', // post formats
+);
+
+$labels = array(
+'name' => _x('Testimonial', 'plural'),
+'singular_name' => _x('Testimonial', 'singular'),
+'menu_name' => _x('Testimonial', 'admin menu'),
+'name_admin_bar' => _x('Testimonial', 'admin bar'),
+'add_new' => _x('Add New', 'add new'),
+'add_new_item' => _('Add New Testimonial'),
+'new_item' => ('New Testimonial'),
+'edit_item' => ('Edit Testimonial'),
+'view_item' => ('View Testimonial'),
+'view_item' => ('View Testimonial'),
+'all_items' => ('All Testimonial'),
+'search_items' => ('Search Testimonial'),
+'hierarchical' => true,
+
+);
+ 
+$args = array(
+    'supports' => $supports,
+  'labels' => $labels,
+  'public' => true,
+  'has_archive' => false,
+  'rewrite' => array('slug' => 'Testimonial'),
+  'taxonomies' => false,
+  'show_ui' => true,
+ );
+ 
+register_post_type( 'Testimonial',$args);
+}

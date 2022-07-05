@@ -3,9 +3,20 @@
  * Template Name: About
  */
 get_header();?> 
+<!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="<?php echo get_template_directory_uri(); ?>/lib/easing/easing.min.js"></script>
+    <script src="<?php echo get_template_directory_uri(); ?>/lib/owlcarousel/owl.carousel.min.js"></script>
 
+    <!-- Contact Javascript File -->
+    <script src="<?php echo get_template_directory_uri(); ?>/mail/jqBootstrapValidation.min.js"></script>
+    <script src="<?php echo get_template_directory_uri(); ?>/mail/contact.js"></script>
 
-<div class="container-fluid page-header" style="margin-bottom: 90px;">
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script
+<!-- Header Start -->
+    <div class="container-fluid page-header" style="margin-bottom: 90px;">
         <div class="container">
             <div class="d-flex flex-column justify-content-center" style="min-height: 300px">
                 <h3 class="display-4 text-white text-uppercase">About</h3>
@@ -17,8 +28,15 @@ get_header();?>
             </div>
         </div>
     </div>
-               <div class="col-lg-5">
-                <img class="img-fluid rounded mb-4 mb-lg-0" src="<?php echo get_template_directory_uri(); ?>/img/about.jpg" alt="">
+    <!-- Header End -->
+
+
+    <!-- About Start -->
+    <div class="container-fluid py-5">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-5">
+                    <img class="img-fluid rounded mb-4 mb-lg-0" src="<?php echo get_template_directory_uri(); ?>/img/about.jpg" alt="">
                 </div>
                 <div class="col-lg-7">
                     <div class="text-left mb-4">
@@ -28,7 +46,9 @@ get_header();?>
                     <p>Aliquyam accusam clita nonumy ipsum sit sea clita ipsum clita, ipsum dolores amet voluptua duo dolores et sit ipsum rebum, sadipscing et erat eirmod diam kasd labore clita est. Diam sanctus gubergren sit rebum clita amet, sea est sea vero sed et. Sadipscing labore tempor at sit dolor clita consetetur diam. Diam ut diam tempor no et, lorem dolore invidunt no nonumy stet ea labore, dolor justo et sit gubergren diam sed sed no ipsum. Sit tempor ut nonumy elitr dolores justo aliquyam ipsum stet</p>
                     <a href="" class="btn btn-primary py-md-2 px-md-4 font-weight-semi-bold mt-2">Learn More</a>
                 </div>
-            </div>/div>
+            </div>
+        </div>
+    </div>
     <!-- About End -->
 
 
@@ -71,7 +91,7 @@ get_header();?>
                                         <option value="3">Course 1</option>
                                     </select>
                                 </div>
-                                <div>
+                                </div>
                                     <button class="btn btn-dark btn-block border-0 py-3" type="submit">Sign Up Now</button>
                                 </div>
                             </form>
@@ -117,13 +137,14 @@ get_header();?>
                         </div>
                     </div>
                 </div>
-            </div> 
-
-                
-
-
-<?
-echo get_footer();
+            </div>
+        </div>
+    </div>
+    
 
 
-?>
+
+               
+
+
+<?php get_footer();?>
