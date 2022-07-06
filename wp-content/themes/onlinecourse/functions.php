@@ -193,18 +193,18 @@ $supports = array(
 );
 
 $labels = array(
-'name' => _x('Subjects', 'plural'),
-'singular_name' => _x('Subject', 'singular'),
-'menu_name' => _x('Subjects', 'admin menu'),
-'name_admin_bar' => _x('Subjects', 'admin bar'),
+'name' => _x('subjects', 'plural'),
+'singular_name' => _x('subject', 'singular'),
+'menu_name' => _x('subjects', 'admin menu'),
+'name_admin_bar' => _x('subjects', 'admin bar'),
 'add_new' => _x('Add New', 'add new'),
-'add_new_item' => _('Add New Subjects'),
-'new_item' => ('New Subjects'),
-'edit_item' => ('Edit Subjects'),
-'view_item' => ('View Subjects'),
-'view_item' => ('View Subjects'),
-'all_items' => ('All Subjects'),
-'search_items' => ('Search Subjects'),
+'add_new_item' => _('Add New subjects'),
+'new_item' => ('New subjects'),
+'edit_item' => ('Edit subjects'),
+'view_item' => ('View subjects'),
+'view_item' => ('View subjects'),
+'all_items' => ('All subjects'),
+'search_items' => ('Search subjects'),
 'hierarchical' => true,
 
 );
@@ -218,11 +218,11 @@ $args = array(
   'taxonomies' => false,
   'show_ui' => true,
  );
- }
+ 
 register_post_type( 'subjects',$args);
 
 
-
+}
 
 
 
@@ -246,7 +246,7 @@ $supports = array(
 );
 
 $labels = array(
-'name' => _x('Courses', 'plural'),
+'name' => _x('courses', 'plural'),
 'singular_name' => _x('Course', 'singular'),
 'menu_name' => _x('Courses', 'admin menu'),
 'name_admin_bar' => _x('Courses', 'admin bar'),
@@ -370,11 +370,48 @@ $args = array(
   'show_ui' => true,
  );
 
- }
+ 
 register_post_type( 'Testimonial',$args);
+}
 
 // custom field
 
+//custom field
+function wporg_add_custom_box() {
+    $screens = [ 'Testimonial','subjects' ];
+    foreach ( $screens as $screen ) {
+        add_meta_box(
+            'wporg_box_id',                 // Unique ID
+            'Custom Meta Box Title',      // Box title
+            'wporg_custom_box_html',  // Content callback, must be of type callable
+            $screen                            // Post type
+        );
+    }
+}
+add_action( 'add_meta_boxes', 'wporg_add_custom_box' );
 
+function wporg_custom_box_html( $post ) {
+    $value = get_post_meta( $post->ID, '_wporg_meta_key', true );
+    ?>
+    <label for="wporg_field">Description for subject</label>
+<!--     <select name="wporg_field" id="wporg_field" class="postbox">
+        <option value="">Select something...</option>
+        <option value="something" <?php selected( $value, 'something' ); ?>>Something</option>
+        <option value="else" <?php selected( $value, 'else' ); ?>>Else</option>
+    </select> -->
+    <input type="text" name="wporg_field" value="<?php echo $value;?>">
+    <?php
+}
 
+function wporg_save_postdata( $post_id ) {
+   
+    if ( array_key_exists( 'wporg_field', $_POST ) ) {
+        update_post_meta(
+            $post_id,
+            '_wporg_meta_key',
+            $_POST['wporg_field']
+        );
+    }
+}
+add_action( 'save_post', 'wporg_save_postdata' );
 

@@ -57,19 +57,21 @@ get_header();
         <div class="container py-5">
             <div class="row align-items-center">
                 <?php
-                global $post, $my_postid;
+                global $post, $page_id;
+              
                 if (have_posts()):
                 while (have_posts()) : the_post();
-                    $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID), '' );
-                    $content = get_post_field('post_content', $my_postid);?>
+                    $url = wp_get_attachment_url( get_post_thumbnail_id($page_id=144), '' );
+                    ?>
+
                 <div class="col-lg-5">
                 <img class="img-fluid rounded mb-4 mb-lg-0" src="<?php echo $url;?>" alt="">
                 </div>
                 <div class="col-lg-7">
                     <div class="text-left mb-4">
-                        <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;"><?php the_title();?></h5>
+                        <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;"> Innovative Way To Learn</h5>
+                        <p><?php $id=144; $post = get_page($id); echo $post->post_content;  ?><p>
                         
-                        <p><?php the_content();?></p>
                     </div>
                     <a href="" class="btn btn-primary py-md-2 px-md-4 font-weight-semi-bold mt-2">Learn More</a>
                 </div>
@@ -201,26 +203,14 @@ endif;
                 <div class="col-lg-5">
                     <div class="card border-0">
                         <div class="card-header bg-light text-center p-4">
-                            <h1 class="m-0">Sign Up Now</h1>
+                            <h1 class="m-0">sign up</h1>
                         </div>
                         <div class="card-body rounded-bottom bg-primary p-5">
                             <form>
                                 <div class="form-group">
-                                    <input type="text" class="form-control border-0 p-4" placeholder="Your name" required="required" />
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control border-0 p-4" placeholder="Your email" required="required" />
-                                </div>
-                                <div class="form-group">
-                                    <select class="custom-select border-0 px-4" style="height: 47px;">
-                                        <option selected>Select a course</option>
-                                        <option value="1">Course 1</option>
-                                        <option value="2">Course 1</option>
-                                        <option value="3">Course 1</option>
-                                    </select>
-                                </div>
-                                <div>
-                                    <button class="btn btn-dark btn-block border-0 py-3" type="submit">Sign Up Now</button>
+                                    <div class="form-control border-0 p-8">
+                                        <?php echo do_shortcode('[gravityform id="2" title="true" description="false" ajax="true"]');?>
+                                    </div>
                                 </div>
                             </form>
                         </div>
@@ -359,4 +349,5 @@ endif;
             </div>
         </div>
     </div>
+    
     <?php get_footer(); ?>
