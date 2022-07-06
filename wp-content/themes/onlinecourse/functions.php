@@ -218,9 +218,10 @@ $args = array(
   'taxonomies' => false,
   'show_ui' => true,
  );
- 
+ }
 register_post_type( 'subjects',$args);
-}
+
+
 
 
 
@@ -368,6 +369,12 @@ $args = array(
   'taxonomies' => false,
   'show_ui' => true,
  );
- 
+
+ }
 register_post_type( 'Testimonial',$args);
-}
+
+// custom field
+
+
+
+
