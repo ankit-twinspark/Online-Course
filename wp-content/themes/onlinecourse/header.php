@@ -36,12 +36,18 @@
 </head>
 
 <body <?php body_class(); ?>>
-<?php wp_body_open(); ?>
+<?php wp_body_open(); 
+$email= get_field('email',257);
+$address= get_field('address',257);
+$contact_no= get_field('contact_no',257);
+$title= get_field('title',257);
+
+?>
 <div class="container-fluid d-none d-lg-block">
         <div class="row align-items-center py-4 px-xl-5">
             <div class="col-lg-3">
                 <a href="" class="text-decoration-none">
-                    <h1 class="m-0"><span class="text-primary">E</span>COURSES</h1>
+                    <h1 class="m-0"><span class="text-primary"><?php echo $title;?></span></h1>
                 </a>
             </div>
             <div class="col-lg-3 text-right">
@@ -49,7 +55,7 @@
                     <i class="fa fa-2x fa-map-marker-alt text-primary mr-3"></i>
                     <div class="text-left">
                         <h6 class="font-weight-semi-bold mb-1">Our Office</h6>
-                        <small>Aashiyana, lucknow UP India</small>
+                        <small><?php echo $address;?></small>
                     </div>
                 </div>
             </div>
@@ -58,7 +64,7 @@
                     <i class="fa fa-2x fa-envelope text-primary mr-3"></i>
                     <div class="text-left">
                         <h6 class="font-weight-semi-bold mb-1">Email Us</h6>
-                        <small>ankit.pandey@twinspark.co</small>
+                        <small><?php echo $email;?></small>
                     </div>
                 </div>
             </div>
@@ -67,7 +73,7 @@
                     <i class="fa fa-2x fa-phone text-primary mr-3"></i>
                     <div class="text-left">
                         <h6 class="font-weight-semi-bold mb-1">Call Us</h6>
-                        <small>+917905536805</small>
+                        <small><?php echo $contact_no;?></small>
                     </div>
                 </div>
             </div>

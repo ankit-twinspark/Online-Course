@@ -7,7 +7,7 @@ get_header();
 
 
 
-?>
+?> <?php if(get_field('gallary')): ?>
 <div class="container-fluid p-0 pb-5 mb-5">
         <div id="header-carousel" class="carousel slide carousel-fade" data-ride="carousel">
             <ol class="carousel-indicators">
@@ -15,9 +15,12 @@ get_header();
                 <li data-target="#header-carousel" data-slide-to="1"></li>
                 <li data-target="#header-carousel" data-slide-to="2"></li>
             </ol>
+            
             <div class="carousel-inner">
+                <?php while(the_repeater_field('gallary')): ?>
+
                 <div class="carousel-item active" style="min-height: 300px;">
-                    <img class="position-relative w-100" src="<?php echo get_template_directory_uri(); ?>/img/carousel-1.jpg" style="min-height: 300px; object-fit: cover;">
+                    <img class="position-relative w-100" src="<?php the_sub_field('image1');?>" style="min-height: 300px; object-fit: cover;">
                     <div class="carousel-caption d-flex align-items-center justify-content-center">
                         <div class="p-5" style="width: 100%; max-width: 900px;">
                             <h5 class="text-white text-uppercase mb-md-3">Best Online Courses</h5>
@@ -27,7 +30,7 @@ get_header();
                     </div>
                 </div>
                 <div class="carousel-item" style="min-height: 300px;">
-                    <img class="position-relative w-100" src="img/carousel-2.jpg" style="min-height: 300px; object-fit: cover;">
+                    <img class="position-relative w-100" src="<?php the_sub_field('image2');?>" style="min-height: 300px; object-fit: cover;">
                     <div class="carousel-caption d-flex align-items-center justify-content-center">
                         <div class="p-5" style="width: 100%; max-width: 900px;">
                             <h5 class="text-white text-uppercase mb-md-3">Best Online Courses</h5>
@@ -37,7 +40,7 @@ get_header();
                     </div>
                 </div>
                 <div class="carousel-item" style="min-height: 300px;">
-                    <img class="position-relative w-100" src="<?php echo get_template_directory_uri(); ?>/img/carousel-3.jpg" style="min-height: 300px; object-fit: cover;">
+                    <img class="position-relative w-100" src="<?php the_sub_field('image3');?>" style="min-height: 300px; object-fit: cover;">
                     <div class="carousel-caption d-flex align-items-center justify-content-center">
                         <div class="p-5" style="width: 100%; max-width: 900px;">
                             <h5 class="text-white text-uppercase mb-md-3">Best Online Courses</h5>
@@ -46,7 +49,9 @@ get_header();
                         </div>
                     </div>
                 </div>
+                <?php endwhile; ?>
             </div>
+            <?php endif; ?>
         </div>
     </div>
     <!-- Carousel End -->
@@ -183,21 +188,28 @@ endif;
 
 
     <!-- Registration Start -->
+    <?php
+$sign_up_title= get_field('sign_up_title',138);
+$sign_up_field= get_field('sign_up_field');
+$sign_up_discription= get_field('sign_up_discription',138);
+$sign_up_attribute_1= get_field('sign_up_attribute_1',138);
+$sign_up_attribute_2= get_field('sign_up_attribute_1',138);
+$sign_up_attribute_3= get_field('sign_up_attribute_1',138);
+
+?>
     <div class="container-fluid bg-registration py-5" style="margin: 90px 0;">
         <div class="container py-5">
             <div class="row align-items-center">
                 <div class="col-lg-7 mb-5 mb-lg-0">
                     <div class="mb-4">
-                        <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Need Any Courses</h5>
-                        <h1 class="text-white">30% Off For New Students</h1>
+                        <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;"><?php echo $sign_up_title;?></h5>
+                        <h1 class="text-white"><?php echo $sign_up_field;?></h1>
                     </div>
-                    <p class="text-white">Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos,
-                        ipsum et dolor kasd sit ea justo. Erat justo sed sed diam. Ea et erat ut sed diam sea ipsum est
-                        dolor</p>
+                    <p class="text-white"><?php echo $sign_up_discription;?></p>
                     <ul class="list-inline text-white m-0">
-                        <li class="py-2"><i class="fa fa-check text-primary mr-3"></i>Labore eos amet dolor amet diam</li>
-                        <li class="py-2"><i class="fa fa-check text-primary mr-3"></i>Etsea et sit dolor amet ipsum</li>
-                        <li class="py-2"><i class="fa fa-check text-primary mr-3"></i>Diam dolor diam elitripsum vero.</li>
+                        <li class="py-2"><i class="fa fa-check text-primary mr-3"></i><?php echo $sign_up_attribute_1;?></li>
+                        <li class="py-2"><i class="fa fa-check text-primary mr-3"></i><?php echo $sign_up_attribute_2;?></li>
+                        <li class="py-2"><i class="fa fa-check text-primary mr-3"></i><?php echo $sign_up_attribute_3;?></li>
                     </ul>
                 </div>
                 <div class="col-lg-5">
