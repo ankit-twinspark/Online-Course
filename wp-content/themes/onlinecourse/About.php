@@ -9,9 +9,6 @@ get_header();?>
     <script src="<?php echo get_template_directory_uri(); ?>/lib/easing/easing.min.js"></script>
     <script src="<?php echo get_template_directory_uri(); ?>/lib/owlcarousel/owl.carousel.min.js"></script>
 
-    <!-- Contact Javascript File -->
-    <script src="<?php echo get_template_directory_uri(); ?>/mail/jqBootstrapValidation.min.js"></script>
-    <script src="<?php echo get_template_directory_uri(); ?>/mail/contact.js"></script>
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script
